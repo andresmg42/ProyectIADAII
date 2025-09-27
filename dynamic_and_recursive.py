@@ -118,7 +118,7 @@ class DinamicAlogorithm:
 
       return solve(0,c)
   
-  def dynamic_solve_solution(self,students,subjects):
+  def rocPD(self,students,subjects):
 
       memo={}
       
