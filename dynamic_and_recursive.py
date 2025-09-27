@@ -158,6 +158,8 @@ class DinamicAlogorithm:
         memo[(j,tuple(c))]=(min_local_insatisfaction,best_path)
 
         return min_local_insatisfaction,best_path
+      
+      min_local_insatisfaction,best_path=solve(0,c)
 
-      return solve(0,c)
+      return min_local_insatisfaction/len(students),best_path
 

@@ -30,9 +30,16 @@ students=[
 
 ]
 
-al_b=brute_force_algorithm()
+# al_b=brute_force_algorithm()
 
-sol=al_b.bruteforce_pipeline(subjects,students)
+# sol=al_b.bruteforce_pipeline(subjects,students)
 
-for s in sol['solution']:
+# for s in sol['solution']:
+#     print(s.return_info_sol())
+
+al_d=DinamicAlogorithm()
+
+v_s,sol=al_d.dynamic_solve_solution(students,subjects)
+
+for s in sol:
     print(s.return_info_sol())
