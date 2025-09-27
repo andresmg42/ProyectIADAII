@@ -1,0 +1,41 @@
+from classes import Student
+
+class Voraz:
+    def __init__(self) -> None:
+        pass
+
+    def global_insatisfaction(self,students) -> float:
+        """Calcula la insatisfacción global promedio"""
+        if len(students) == 0:
+            return 0.0
+        return sum(student.calculate_insatisfaction() for student in students) / len(
+            students
+        )
+
+    def greedy_algorithm(self,subjects, students ):
+        """Asigna materias a estudiantes según prioridad de solicitud"""
+        solution = [Student(stu.code, stu.solicited_subjects[:]) for stu in students]
+        
+        for subj in subjects:
+            # Buscar solicitudes de esa materia
+            requests = []
+            for idx, stu in enumerate(students):
+                for sol in stu.solicited_subjects:
+                    if sol.code == subj.code:
+                        requests.append((idx, sol))
+
+            # Ordenar por prioridad descendente
+            requests.sort(key=lambda x: x[1].priority, reverse=True)
+
+            # Asignar hasta agotar cupos
+            quotas = subj.quotas
+            for idx, sol in requests:
+                if quotas <= 0:
+                    break
+                solution[idx].assign_subject(subj.code)
+                quotas -= 1
+
+            subj.quotas = quotas  # actualizar cupos restantes
+
+        return solution
+
