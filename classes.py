@@ -7,7 +7,9 @@ class Subject:
     self.index_id:int=id
 
 class Student:
-  def __init__(self,code,solicited_subjects,insatisfaction=0):
+  
+  
+  def __init__(self,code=None,solicited_subjects=None):
     self.code:str=code
     self.solicited_subjects:List[SolicitedSubject]=solicited_subjects
     self.assigned_subjects:List[SolicitedSubject]=[]
@@ -51,7 +53,7 @@ class Student:
 
 
 class SolicitedSubject:
-  def __init__(self,subject,priority):
+  def __init__(self,subject=None,priority=0):
     self.subject=subject
     self.priority:int=priority
 
