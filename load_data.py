@@ -10,7 +10,7 @@ class LoadData:
     def __init__(self):
         self.subjects = []
         self.students = []
-        pass
+        
 
     def load_data_and_validate(self, path):
 
@@ -65,11 +65,4 @@ class LoadData:
         get_students(student_block)
 
 
-load = LoadData()
 
-load.load_data_and_validate("test1.txt")
-
-load.process_content()
-
-for s in load.students:
-    print(s.return_info())

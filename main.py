@@ -1,6 +1,7 @@
 from classes import Subject,Student,SolicitedSubject
 from brute_force import brute_force_algorithm
 from dynamic_and_recursive import DinamicAlogorithm
+from controller import Controller
 
 subjects=[
   Subject('M1',3,0),
@@ -12,21 +13,21 @@ students=[
     Student('e1',[SolicitedSubject(subjects[0],5),
                   SolicitedSubject(subjects[1],2),
                   SolicitedSubject(subjects[2],1)
-                  ],1),
+                  ]),
     Student('e2',[SolicitedSubject(subjects[0],4),
                   SolicitedSubject(subjects[1],1),
                   SolicitedSubject(subjects[2],3)
-                  ],2),
+                  ]),
     Student('e3',[SolicitedSubject(subjects[1],3),
                   SolicitedSubject(subjects[2],2)
-                  ],3),
+                  ]),
     Student('e4',[SolicitedSubject(subjects[0],2),
                   SolicitedSubject(subjects[2],3)
-                  ],4),
+                  ]),
     Student('e5',[SolicitedSubject(subjects[0],3),
                   SolicitedSubject(subjects[1],2),
                   SolicitedSubject(subjects[2],3)
-                  ],5)
+                  ])
 
 ]
 
@@ -37,9 +38,21 @@ students=[
 # for s in sol['solution']:
 #     print(s.return_info_sol())
 
-al_d=DinamicAlogorithm()
+# al_d=DinamicAlogorithm()
 
-v_s,sol=al_d.dynamic_solve_solution(students,subjects)
+# v_s,sol=al_d.rocPD(students,subjects)
 
-for s in sol:
-    print(s.return_info_sol())
+# print(v_s)
+
+# for s in sol:
+#     print(s.return_info_sol())
+
+controller=Controller()
+
+controller.load_data('test1.txt')
+
+controller.print_load_data()
+
+controller.find_solution('rocPD')
+
+controller.print_solution()
