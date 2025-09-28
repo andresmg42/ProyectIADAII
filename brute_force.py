@@ -96,7 +96,7 @@ class brute_force_algorithm:
     return min_general_satisfaction
 
 
-  def bruteforce_pipeline(self,subjects,students):
+  def rocFB(self,subjects,students):
 
     subject_distribution= self.distribute_solutions(subjects,students)
 

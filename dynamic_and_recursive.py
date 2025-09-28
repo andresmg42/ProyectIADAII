@@ -118,7 +118,7 @@ class DinamicAlogorithm:
 
       return solve(0,c)
   
-  def dynamic_solve_solution(self,students,subjects):
+  def rocPD(self,subjects,students):
 
       memo={}
       
@@ -158,6 +158,8 @@ class DinamicAlogorithm:
         memo[(j,tuple(c))]=(min_local_insatisfaction,best_path)
 
         return min_local_insatisfaction,best_path
+      
+      min_local_insatisfaction,best_path=solve(0,c)
 
-      return solve(0,c)
+      return {'min':min_local_insatisfaction/len(students),'solution':best_path}
 
