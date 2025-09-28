@@ -39,6 +39,6 @@ controller.load_data('test1.txt')
 
 controller.print_load_data()
 
-controller.find_solution('rocPD')
+controller.find_solution('rocV')
 
 controller.print_solution()
