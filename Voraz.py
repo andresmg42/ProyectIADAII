@@ -1,4 +1,5 @@
 from classes import Student
+from time import time
 
 class Voraz:
     def __init__(self) -> None:
@@ -39,12 +40,13 @@ class Voraz:
         return solution
     
     def rocV(self,subjects,students):
-
+        start = time()
         students_sol=self.greedy_algorithm(subjects,students)
 
         global_ins=self.global_insatisfaction(students_sol)
-
-        return {'min':global_ins,'solution':students_sol}
+        end = time()
+        final_time = end - start
+        return {'min':global_ins,'solution':students_sol},final_time
 
 
 
