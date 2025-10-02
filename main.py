@@ -31,28 +31,9 @@ students=[
 
 ]
 
-# al_b=brute_force_algorithm()
+btf=brute_force_algorithm()
 
-# sol=al_b.bruteforce_pipeline(subjects,students)
+sol=btf.distribute_solutions(subjects,students)
 
-# for s in sol['solution']:
-#     print(s.return_info_sol())
+sol2=btf.distribution_final(sol)
 
-# al_d=DinamicAlogorithm()
-
-# v_s,sol=al_d.rocPD(students,subjects)
-
-# print(v_s)
-
-# for s in sol:
-#     print(s.return_info_sol())
-
-controller=Controller()
-
-controller.load_data('test1.txt')
-
-controller.print_load_data()
-
-controller.find_solution('rocPD')
-
-controller.print_solution()
