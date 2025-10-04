@@ -30,8 +30,8 @@ class View:
         filename = input("Escriba el nombre del archivo (en carpeta inputs): ")
         try:
             self.controller.load_data_txt(f"./inputs/{filename}")
-            print("\nDatos cargados correctamente\n")
-            print("\nEstos son los datos cargados:\n")
+            print("\nDatos cargados correctamente!!!")
+            print("\nEstos son los datos cargados:")
             self.controller.print_loaded_data()
         except FileNotFoundError:
             print("No se encontró el archivo, intente de nuevo")
