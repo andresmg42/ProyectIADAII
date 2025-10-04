@@ -9,12 +9,13 @@ class brute_force_algorithm:
 
 
   def combinations(self,elements, k):
-
+      
+      
       if k == 0:
           return [[]]
 
       if len(elements) < k:
-          return []
+          return [elements]
 
       first = elements[0]
       remain = elements[1:]
