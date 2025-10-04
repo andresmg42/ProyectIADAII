@@ -1,6 +1,7 @@
 from re import sub
 import copy
 import math
+from time import time
 
 class DinamicAlogorithm:
 
@@ -119,7 +120,7 @@ class DinamicAlogorithm:
       return solve(0,c)
   
   def rocPD(self,subjects,students):
-
+      start = time()
       memo={}
       
       c=[subject.quotas for subject in subjects]
@@ -160,6 +161,7 @@ class DinamicAlogorithm:
         return min_local_insatisfaction,best_path
       
       min_local_insatisfaction,best_path=solve(0,c)
-
-      return {'min':min_local_insatisfaction/len(students),'solution':best_path}
+      end = time()
+      final_time = end - start
+      return {'min':min_local_insatisfaction/len(students),'solution':best_path},final_time
 

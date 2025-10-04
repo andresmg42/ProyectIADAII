@@ -35,10 +35,15 @@ students=[
 
 controller=Controller()
 
-controller.load_data('test2.txt')
+controller.load_data('./inputs/Own_test2.txt')
 
 controller.print_load_data()
 
 controller.find_solution('rocFB')
 
-controller.print_solution()
+#controller.find_solution('rocPD')
+
+#controller.find_solution('rocV')
+controller.find_solution('rocFB')
+
+controller.write_FB_solution()
