@@ -3,6 +3,7 @@ from brute_force import brute_force_algorithm
 from dynamic_and_recursive import DinamicAlogorithm
 from Voraz import Voraz
 from controller import Controller
+from view import View
 
 subjects=[
   Subject('M1',3,0),
@@ -32,18 +33,19 @@ students=[
 
 ]
 
+view=View()
+view.app_init()
 
-controller=Controller()
 
-controller.load_data('./inputs/Own_test2.txt')
+# c=Controller()
 
-controller.print_load_data()
-
-controller.find_solution('rocFB')
-
-#controller.find_solution('rocPD')
-
-#controller.find_solution('rocV')
-controller.find_solution('rocFB')
-
-controller.write_FB_solution()
+# c.load_data_txt('./inputs/test1.txt')
+# c.find_solution('rocPD')
+# print('solution using rocPD')
+# c.print_solution()
+# c.find_solution('rocFB')
+# print('solution using rocFB')
+# c.print_solution()
+# c.find_solution('rocV')
+# print('solution using rocV')
+# c.print_solution()
