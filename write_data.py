@@ -20,14 +20,14 @@ class Write_output:
         file_path = os.path.join(outputs_dir, filename)
 
         with open(file_path, "w", encoding="utf-8") as f:
-            f.write(f"{self.exec_time:.4f}\n")
+            f.write(f"{self.solution['min']:.4f}\n")
 
         
             for student in self.solution["solution"]:
                 f.write(f"{student.code},{len(student.assigned_subjects)}\n")
                 for subj in student.assigned_subjects:
                     f.write(f"{subj.code}\n")
-                f.write("\n")
+                # f.write("\n")
 
 
 
