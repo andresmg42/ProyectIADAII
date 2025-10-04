@@ -14,7 +14,6 @@ class Voraz:
         )
 
     def greedy_algorithm(self,subjects, students ):
-        """Asigna materias a estudiantes según prioridad de solicitud"""
         solution = [Student(stu.code, stu.solicited_subjects[:]) for stu in students]
         
         for subj in subjects:

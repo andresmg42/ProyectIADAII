@@ -10,16 +10,18 @@ class LoadData:
     def __init__(self):
         self.subjects = []
         self.students = []
-        
+        self.filename = None   
 
     def load_data_and_validate(self, path):
 
         file_path = path
 
         try:
-
             with open(file_path, "r", encoding="utf-8") as file:
                 self.content = file.read()
+
+
+            self.filename = os.path.basename(file_path)
 
         except FileNotFoundError:
             print(f"Error: The file {file_path} was not found.")
@@ -27,7 +29,6 @@ class LoadData:
             print(f"An error occurred: {e}")
 
     def process_content(self):
-
         lines = self.content.splitlines()
         num_subjects = int(lines[0])
         for i in range(1, num_subjects + 1):
@@ -38,7 +39,6 @@ class LoadData:
         student_block = lines[num_subjects + 1 + 1 :]
 
         def get_students(block):
-
             if len(block) == 0:
                 return
 
@@ -59,10 +59,6 @@ class LoadData:
                 )
 
             self.students.append(student)
-
             get_students(block[num_soli_sbj + 1 :])
 
         get_students(student_block)
-
-
-

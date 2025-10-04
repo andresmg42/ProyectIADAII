@@ -38,10 +38,12 @@ class Controller:
                 self.solution,self.time = self.voraz_al.rocV(subjects,students)
     
     def write_FB_solution(self):
-        Writer = Write_output(self.time,self.solution,self.executed_algorthrim)
+        Writer = Write_output(self.time,self.solution,self.executed_algorthrim,self.load_data.filename)
         expected_output = Writer.write_solution()
         return expected_output
     
+ 
+
     def print_solution(self):
         
         print(f'solution value: {self.solution['min']}')
