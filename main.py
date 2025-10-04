@@ -29,7 +29,6 @@ students=[
 
 ]
 
-<<<<<<< HEAD
 
 controller=Controller()
 
@@ -40,5 +39,3 @@ controller.print_load_data()
 controller.find_solution('rocV')
 
 controller.print_solution()
-=======
->>>>>>> Andres22451885
