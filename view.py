@@ -14,7 +14,7 @@ class View:
                
                if self.controller.load_data.filename is  None:
                     self.load_data_menu()
-                
+        
                self.algorithm_menu()
 
 
@@ -30,7 +30,9 @@ class View:
         filename = input("Escriba el nombre del archivo (en carpeta inputs): ")
         try:
             self.controller.load_data_txt(f"./inputs/{filename}")
-            print("Datos cargados correctamente")
+            print("\nDatos cargados correctamente\n")
+            print("\nEstos son los datos cargados:\n")
+            self.controller.print_loaded_data()
         except FileNotFoundError:
             print("No se encontró el archivo, intente de nuevo")
 
@@ -50,7 +52,7 @@ class View:
                 case 3: 
                     self.controller.find_solution("rocPD")
                     self.show_results()
-                case 4: self.load_new_input()
+                case 4: self.controller.load_data.clear_data()
                 case 5: self.exit_app()
                 case _: print("Elija una opción válida"); return
         except ValueError:
@@ -59,19 +61,19 @@ class View:
         
 
     def show_results(self):
-        print("\nEstos son los datos cargados:\n")
-        self.controller.print_loaded_data()
         print(f"\nSolución usando {self.controller.executed_algorthrim}:")
+        print("----------------------------------")
         self.controller.print_solution()
         self.controller.write_solution()
+        print("----------------------------------\n")
 
     def exit_app(self):
         print("Gracias por usar este programa")
         self.loop = False
 
-    def load_new_input(self):
-        self.controller.load_data.clear_data()
-        self.load_data_menu()
+    
+        
+       
 
 
              

@@ -7,9 +7,6 @@ import copy
 
 class Controller:
     def __init__(self):
-        # self.brute_force_al= brute_force_algorithm()
-        # self.dinamic_al= DinamicAlogorithm()
-        # self.voraz_al=Voraz()
         self.time = 0
         self.executed_algorthrim = "Nothing"
         self.load_data=LoadData()
@@ -35,15 +32,15 @@ class Controller:
         match method:
             case 'rocFB':
                 brute_force_al= brute_force_algorithm()
-                self.executed_algorthrim = "brute_force"
+                self.executed_algorthrim = "rocFB"
                 self.solution,self.time = brute_force_al.rocFB(subjects,students)
             case 'rocPD':
                 dinamic_al= DinamicAlogorithm()
-                self.executed_algorthrim = "Dinamic"
+                self.executed_algorthrim = "rocPD"
                 self.solution,self.time= dinamic_al.rocPD(subjects,students)
             case 'rocV':
                 voraz_al=Voraz()
-                self.executed_algorthrim = "Voraz"
+                self.executed_algorthrim = "rocV"
                 self.solution,self.time = voraz_al.rocV(subjects,students)
     
     def write_solution(self):
