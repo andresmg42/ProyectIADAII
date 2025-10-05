@@ -9,12 +9,13 @@ class brute_force_algorithm:
 
 
   def combinations(self,elements, k):
-
+      
+      
       if k == 0:
           return [[]]
 
       if len(elements) < k:
-          return []
+          return [elements]
 
       first = elements[0]
       remain = elements[1:]
@@ -93,7 +94,7 @@ class brute_force_algorithm:
       if min_general_satisfaction['min']>general_insatisfaction:
         min_general_satisfaction['min']=general_insatisfaction
         min_general_satisfaction['solution']=solution
-    print("DEBUG en brute_force class solution:", min_general_satisfaction['solution'])
+    # print("DEBUG en brute_force class solution:", min_general_satisfaction['solution'])
     return min_general_satisfaction
 
 
