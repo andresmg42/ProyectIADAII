@@ -1,5 +1,6 @@
 import copy
 import math
+from time import time
 
 class brute_force_algorithm:
 
@@ -92,12 +93,12 @@ class brute_force_algorithm:
       if min_general_satisfaction['min']>general_insatisfaction:
         min_general_satisfaction['min']=general_insatisfaction
         min_general_satisfaction['solution']=solution
-
+    print("DEBUG en brute_force class solution:", min_general_satisfaction['solution'])
     return min_general_satisfaction
 
 
   def rocFB(self,subjects,students):
-
+    start = time()
     subject_distribution= self.distribute_solutions(subjects,students)
 
     distributed_solutions=self.distribution_final(subject_distribution)
@@ -105,5 +106,6 @@ class brute_force_algorithm:
     final_solutions=self.get_final_solutions(distributed_solutions,students,subjects)
 
     optimal_solution=self.find_optimal_solution(final_solutions,students)
-
-    return optimal_solution
+    end = time()
+    final_time = end - start
+    return optimal_solution, final_time

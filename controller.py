@@ -10,7 +10,8 @@ class Controller:
         self.brute_force_al= brute_force_algorithm()
         self.dinamic_al= DinamicAlogorithm()
         self.voraz_al=Voraz()
-        
+        self.time = 0
+        self.executed_algorthrim = "Nothing"
         
 
     def load_data(self,path):
@@ -28,9 +29,11 @@ class Controller:
         subjects=self.load_data.subjects
         match method:
             case 'rocFB':
-                self.solution= self.brute_force_al.rocFB(subjects,students)
+                self.executed_algorthrim = "brute_force"
+                self.solution,self.time = self.brute_force_al.rocFB(subjects,students)
             case 'rocPD':
-                self.solution= self.dinamic_al.rocPD(subjects,students)
+                self.executed_algorthrim = "Dinamic"
+                self.solution,self.time= self.dinamic_al.rocPD(subjects,students)
             case 'rocV':
                 self.executed_algorthrim = "Voraz"
                 self.solution,self.time = self.voraz_al.rocV(subjects,students)
