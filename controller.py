@@ -40,28 +40,33 @@ class Controller:
                 self.executed_algorthrim = "rocPD"
                 self.solution,self.time= dinamic_al.rocPD(subjects,students)
             case 'rocV':
+                voraz_al = Voraz()
                 self.executed_algorthrim = "Voraz"
-                self.solution,self.time = self.voraz_al.rocV(subjects,students)
+                self.solution,self.time = voraz_al.rocV(subjects,students)
 
     def benchmark_solutions(self):
         students = self.load_data.students
         subjects = self.load_data.subjects
 
+        brute_force_al= brute_force_algorithm()
+        dinamic_al= DinamicAlogorithm()
+        voraz_al = Voraz()
+
         self.solutions = []  # aquí guardamos las soluciones
         self.times = []      # aquí guardamos los tiempos
 
         # Brute Force
-        solution, exec_time = self.brute_force_al.rocFB(subjects, students)
+        solution, exec_time = brute_force_al.rocFB(subjects, students)
         self.solutions.append(solution)
         self.times.append(exec_time)
 
         # Dinamic
-        solution, exec_time = self.dinamic_al.rocPD(subjects, students)
+        solution, exec_time = dinamic_al.rocPD(subjects, students)
         self.solutions.append(solution)
         self.times.append(exec_time)
 
         # Voraz
-        solution, exec_time = self.voraz_al.rocV(subjects, students)
+        solution, exec_time = voraz_al.rocV(subjects, students)
         self.solutions.append(solution)
         self.times.append(exec_time)
 

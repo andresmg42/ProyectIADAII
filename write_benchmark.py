@@ -18,14 +18,14 @@ class Write_output_b:
         os.makedirs(outputs_dir, exist_ok=True)
 
         if filename is None:
-            filename = f"salida_{self.executed_algorthrim}_{self.load_data_name}.txt"
+            filename = f"salida_{self.executed_algorthrim}_{self.load_data_name}"
 
         file_path = os.path.join(outputs_dir, filename)
 
         with open(file_path, "w", encoding="utf-8") as f:
             for idx, (time, solution) in enumerate(zip(self.exec_times, self.solutions), start=1):
                 f.write(f"=== SOLUCIÓN {idx} ===\n")
-                f.write(f"Tiempo de ejecución: {time:.4f} segundos\n")
+                f.write(f"Tiempo de ejecución: {time:.6f} segundos\n")
                 f.write("----------------------------\n")
 
                 for student in solution["solution"]:

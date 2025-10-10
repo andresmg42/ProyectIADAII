@@ -24,8 +24,12 @@ class Voraz:
                     if sol.code == subj.code:
                         requests.append((idx, sol))
 
-            
-            requests.sort(key=lambda x: x[1].priority, reverse=True)
+            total_subjects = len(subjects)
+
+            requests.sort(
+                key=lambda x: x[1].priority * (total_subjects / len(students[x[0]].solicited_subjects)),
+                reverse=True
+            )
 
             quotas = subj.quotas
             for idx, sol in requests:

@@ -35,18 +35,19 @@ students=[
 
 controller=Controller()
 
-controller.load_data('./inputs/benchmark_1.txt')
+controller.load_data_txt('./inputs/test1.txt')
 
-controller.print_load_data()
+controller.print_load_data_raw()
 
 #controller.find_solution('rocFB')
 
 #controller.find_solution('rocPD')
 
-#controller.find_solution('rocV')
+controller.find_solution('rocV')
 
-#controller.write_FB_solution()
+controller.write_FB_solution()
 
-controller.benchmark_solutions()
+#controller.benchmark_solutions()
 
-controller.write_all_solution()
+#controller.write_all_solution()
+
