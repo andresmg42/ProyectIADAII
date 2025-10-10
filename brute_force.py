@@ -94,7 +94,7 @@ class brute_force_algorithm:
       if min_general_satisfaction['min']>general_insatisfaction:
         min_general_satisfaction['min']=general_insatisfaction
         min_general_satisfaction['solution']=solution
-    # print("DEBUG en brute_force class solution:", min_general_satisfaction['solution'])
+    
     return min_general_satisfaction
 
 
