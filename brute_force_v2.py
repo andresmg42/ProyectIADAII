@@ -1,7 +1,8 @@
 import copy
 import math
 from time import time
-from typing import List,Any
+from typing import List,Any,Dict
+from classes import Student
 
 class brute_force_algorithm:
 
@@ -147,25 +148,45 @@ class brute_force_algorithm:
 
   def get_final_solutions(self,distributed_solutions,students,subjects):
     final_solutions=[]
-    for solution in distributed_solutions:
-      new_students=copy.deepcopy(students)
-      for i in range(len(solution)):
-        for student in new_students:
-          subject_code=subjects[i].code
-          if student.code in solution[i]:
-            student.assign_subject(subject_code)
-      final_solutions.append(new_students)
+    
+    for sol in distributed_solutions:
+       students_dic={student.code:[] for student in students}
+       for sol_i in range(len(sol)):
+          for st_code in sol[sol_i]:
+             students_dic[st_code].append(subjects[sol_i].code)
+       final_solutions.append(students_dic)
+    
     return final_solutions
+          
+  def calculate_insatisfaction(self,student,assigned_subject_codes):
+        
+        if not student.solicited_subjects or not student:
+            return 0.0
 
-  def find_optimal_solution(self,final_solutions,students):
+        
+        maj_size = len(assigned_subject_codes)
+        msj_size = len(student.solicited_subjects)
+        if msj_size == 0:
+            return 0.0
+
+        unsupplied_subjects = [sol for sol in student.solicited_subjects if sol.code not in assigned_subject_codes]
+        
+        sum_pjl = sum(sol.priority for sol in unsupplied_subjects)
+
+        fun_Y = msj_size * 3 - 1
+        return (1 - (maj_size / msj_size)) * (sum_pjl / fun_Y)
+
+  def find_optimal_solution(self,final_solutions:List[Dict],students:List[Student]):
     min_general_satisfaction={'min':math.inf,'solution':None}
     for solution in final_solutions:
       acumulated_insatisfaction=0
-      for i in range(len(solution)):
+      for key,value in solution.items():
 
-        student=solution[i]
+        assigned_subjects=value
 
-        student_insatisfaction=student.calculate_insatisfaction()
+        student=next((student for student in students if student.code==key),None)
+
+        student_insatisfaction=self.calculate_insatisfaction(student,assigned_subjects)
 
         acumulated_insatisfaction+=student_insatisfaction
 
@@ -175,6 +196,23 @@ class brute_force_algorithm:
         min_general_satisfaction['solution']=solution
     
     return min_general_satisfaction
+
+  def get_complete_solution(self,solution:Dict,students:List[Student]):
+     full_solution=[]
+     min_insatisfaction=solution['min']
+     solution_dict=solution['solution']
+     for key,assigned_subjects in solution_dict.items():
+        students=copy.deepcopy(students)
+
+        student=next((student for student in students if student.code==key),None)
+        if student:
+            student.assigned_subjects=assigned_subjects
+        full_solution.append(student)
+     
+     return {'min':min_insatisfaction,'solution':full_solution}
+
+        
+    
 
 
   def rocFB(self,subjects,students):
@@ -186,6 +224,8 @@ class brute_force_algorithm:
     final_solutions=self.get_final_solutions(distributed_solutions,students,subjects)
 
     optimal_solution=self.find_optimal_solution(final_solutions,students)
+
+    full_solution=self.get_complete_solution(optimal_solution,students)
     end = time()
     final_time = end - start
-    return optimal_solution, final_time
+    return full_solution, final_time
