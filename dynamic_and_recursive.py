@@ -2,6 +2,7 @@ import copy
 import math
 from time import time
 from typing import List, Tuple, Dict, Any
+from classes import SolicitedSubject,Student,Subject
 
 
 class DinamicAlogorithm:
