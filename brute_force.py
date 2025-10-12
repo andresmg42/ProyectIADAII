@@ -11,7 +11,6 @@ class brute_force_algorithm:
 
   def combinations(self,elements, k):
       
-      
       if k == 0:
           return [[]]
 

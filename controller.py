@@ -3,6 +3,7 @@ from brute_force import brute_force_algorithm
 from dynamic_and_recursive import DinamicAlogorithm
 from Voraz import Voraz
 from write_data import Write_output
+from write_benchmark import Write_output_b
 import copy
 
 class Controller:
@@ -39,16 +40,46 @@ class Controller:
                 self.executed_algorthrim = "rocPD"
                 self.solution,self.time= dinamic_al.rocPD(subjects,students)
             case 'rocV':
-                voraz_al=Voraz()
-                self.executed_algorthrim = "rocV"
+                voraz_al = Voraz()
+                self.executed_algorthrim = "Voraz"
                 self.solution,self.time = voraz_al.rocV(subjects,students)
-    
-    def write_solution(self):
+
+    def benchmark_solutions(self):
+        students = self.load_data.students
+        subjects = self.load_data.subjects
+
+        brute_force_al= brute_force_algorithm()
+        dinamic_al= DinamicAlogorithm()
+        voraz_al = Voraz()
+
+        self.solutions = []  # aquí guardamos las soluciones
+        self.times = []      # aquí guardamos los tiempos
+
+        # Brute Force
+        solution, exec_time = brute_force_al.rocFB(subjects, students)
+        self.solutions.append(solution)
+        self.times.append(exec_time)
+
+        # Dinamic
+        solution, exec_time = dinamic_al.rocPD(subjects, students)
+        self.solutions.append(solution)
+        self.times.append(exec_time)
+
+        # Voraz
+        solution, exec_time = voraz_al.rocV(subjects, students)
+        self.solutions.append(solution)
+        self.times.append(exec_time)
+
+    def write_FB_solution(self):
         Writer = Write_output(self.time,self.solution,self.executed_algorthrim,self.load_data.filename)
-        expected_output = Writer.write_solution()
-        return expected_output
+        Writer.write_solution()
+
     
- 
+    def write_all_solution(self):
+        Writer = Write_output_b(self.times,self.solutions,"Bencmark",self.load_data.filename)
+        print(f"Solutions={self.solutions}")
+        Writer.write_solution()
+    
 
     def print_solution(self):
         
