@@ -2,10 +2,6 @@ import os
 
 class Write_output_b:
     def __init__(self, exec_times, solutions, algorhtrim, load_data_name):
-        """
-        exec_times: lista de floats, cada uno el tiempo de una solución
-        solutions: lista de diccionarios con la misma estructura que antes
-        """
         self.exec_times = exec_times
         self.solutions = solutions
         self.executed_algorthrim = algorhtrim
@@ -26,6 +22,7 @@ class Write_output_b:
             for idx, (time, solution) in enumerate(zip(self.exec_times, self.solutions), start=1):
                 f.write(f"=== SOLUCIÓN {idx} ===\n")
                 f.write(f"Tiempo de ejecución: {time:.6f} segundos\n")
+                f.write(f"Insatisfacción mínima: {solution['min']}\n")
                 f.write("----------------------------\n")
 
                 for student in solution["solution"]:

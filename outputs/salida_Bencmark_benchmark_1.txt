@@ -1,60 +1,69 @@
 === SOLUCIÓN 1 ===
-Tiempo de ejecución: 0.000200 segundos
-Insatisfacción mínima: 0.0
+Tiempo de ejecución: 0.005367 segundos
+Insatisfacción mínima: 0.04
 ----------------------------
-e1,2
-M1
+e1,1
 M2
 
 e2,1
-M1
+M3
 
 e3,1
-M2
+M1
 
 e4,2
 M1
 M2
+
+e5,2
+M1
+M3
 
 ===============
 
 === SOLUCIÓN 2 ===
-Tiempo de ejecución: 0.001745 segundos
-Insatisfacción mínima: 0.0
+Tiempo de ejecución: 0.005044 segundos
+Insatisfacción mínima: 0.04
 ----------------------------
-e1,2
-M1
+e1,1
 M2
 
 e2,1
-M1
+M3
 
 e3,1
-M2
+M1
 
 e4,2
 M1
 M2
+
+e5,2
+M1
+M3
 
 ===============
 
 === SOLUCIÓN 3 ===
-Tiempo de ejecución: 0.000028 segundos
-Insatisfacción mínima: 0.0
+Tiempo de ejecución: 0.000033 segundos
+Insatisfacción mínima: 0.04
 ----------------------------
-e1,2
-M1
+e1,1
 M2
 
 e2,1
-M1
+M3
 
 e3,1
-M2
+M1
 
 e4,2
 M1
 M2
+
+e5,2
+M1
+M3
 
 ===============
 

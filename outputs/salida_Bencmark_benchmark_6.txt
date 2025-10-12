@@ -1,5 +1,6 @@
 === SOLUCIÓN 1 ===
-Tiempo de ejecución: 134.239335 segundos
+Tiempo de ejecución: 98.140017 segundos
+Insatisfacción mínima: 0.10750000000000001
 ----------------------------
 e1,2
 M1
@@ -42,7 +43,8 @@ M4
 ===============
 
 === SOLUCIÓN 2 ===
-Tiempo de ejecución: 1.437920 segundos
+Tiempo de ejecución: 1.040689 segundos
+Insatisfacción mínima: 0.10750000000000001
 ----------------------------
 e1,2
 M1
@@ -85,7 +87,8 @@ M3
 ===============
 
 === SOLUCIÓN 3 ===
-Tiempo de ejecución: 0.000109 segundos
+Tiempo de ejecución: 0.000059 segundos
+Insatisfacción mínima: 0.13666666666666666
 ----------------------------
 e1,3
 M1
@@ -108,7 +111,8 @@ e5,2
 M1
 M5
 
-e6,1
+e6,2
+M2
 M3
 
 e7,1
@@ -117,8 +121,7 @@ M1
 e8,1
 M3
 
-e9,2
-M2
+e9,1
 M5
 
 e10,2
