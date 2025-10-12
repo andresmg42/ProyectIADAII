@@ -3,12 +3,9 @@ from controller import Controller
 from view import View
 from load_data import LoadData
 from dynamic_and_recursive import DinamicAlogorithm
-from dynamic_programing_gemini_v2 import DinamicAlogorithm as PDG
 from dynamic_and_recursive import DinamicAlogorithm as PD
-# import brutef_force_chat as bt
 from  brute_force  import brute_force_algorithm as bt
-from brute_force_v2 import brute_force_algorithm as bt2
-from brute_force_v2 import brute_force_algorithm as btb
+
 
 
 # subjects=[
