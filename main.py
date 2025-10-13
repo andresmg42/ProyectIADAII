@@ -35,9 +35,9 @@ students=[
 
 controller=Controller()
 
-controller.load_data('./inputs/benchmark_1.txt')
+controller.load_data_txt('./inputs/benchmark_1.txt')
 
-controller.print_load_data()
+controller.print_loaded_data()
 
 #controller.find_solution('rocFB')
 

@@ -78,7 +78,7 @@ class Controller:
 
     def print_solution(self):
         
-        print(f'valor de la solución: {self.solution['min']}\n')
+        print(f"valor de la solución: {self.solution['min']}\n")
         print(f'tiempo de ejecución: {self.time}\n')
         print('solucion:')
         for s in self.solution['solution']:
