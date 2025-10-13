@@ -27,7 +27,7 @@ class View:
                 return
 
     def load_data_menu(self):
-        filename = input("Escriba el nombre del archivo (en carpeta inputs): ")
+        filename = input("Escriba el nombre del archivo (en carpeta inputs Ejemplos: test_1.txt): ")
         try:
             self.controller.load_data_txt(f"./inputs/{filename}")
             print("\nDatos cargados correctamente!!!")
@@ -64,7 +64,7 @@ class View:
         print(f"\nSolución usando {self.controller.executed_algorthrim}:")
         print("----------------------------------")
         self.controller.print_solution()
-        self.controller.write_solution()
+        self.controller.write_FB_solution()
         print("----------------------------------\n")
 
     def exit_app(self):
