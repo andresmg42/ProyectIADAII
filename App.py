@@ -65,8 +65,19 @@ class App:
             self.controller.find_solution(selected_algorithm_key)
             
             # Mostrar los resultados en el área de texto de la GUI
-            result_text = f"Solución: {self.controller.solution}\nTiempo de ejecución: {self.controller.time:.4f} segundos"
-            self.display_results(result_text)
+            # result_text = f"Solución: {self.controller.solution}\nTiempo de ejecución: {self.controller.time:.4f} segundos"
+
+            text_sol=f'Algoritmo ejecutado: {self.controller.executed_algorthrim}\n'
+            text_sol+=f'Valor Solucion: {self.controller.solution['min']}\n'
+            text_sol=text_sol +'------------------------------------------------\n'
+            text_sol=text_sol + 'Solucion: \n'
+            for est in self.controller.solution['solution']:
+                text_sol+=est.return_info_sol() +'\n'
+
+            
+
+            self.display_results(text_sol)
+            
 
         except Exception as e:
             messagebox.showerror("Error", f"Error al ejecutar las pruebas: {e}")
@@ -79,11 +90,15 @@ class App:
     def save_report(self):
         # Guardar los resultados en un archivo
         try:
-            file_path = filedialog.asksaveasfilename(title="Guardar Informe", defaultextension=".txt", filetypes=[("Text files", "*.txt")])
-            if file_path:
-                with open(file_path, 'w') as f:
-                    f.write(self.results_text.get(1.0, tk.END))  # Guardar todo el texto en el archivo
-                messagebox.showinfo("Éxito", "Informe guardado correctamente")
+            match self.controller.executed_algorthrim:
+                case 'rocFB':
+                    path='outputs/brute_force'
+                case 'rocPD':
+                    path='outputs/dinamic'
+                case 'Voraz':
+                    path='outputs/voraz'
+            print('path',path)  
+            Controller.write_solution(path)
         except Exception as e:
             messagebox.showerror("Error", f"Error al guardar el informe: {e}")
 

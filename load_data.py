@@ -35,6 +35,7 @@ class LoadData:
 
     def process_content(self):
         lines = self.content.splitlines()
+        # print(self.content)
         num_subjects = int(lines[0])
         for i in range(1, num_subjects + 1):
             subject_code, quotas = lines[i].split(sep=",")

@@ -7,10 +7,10 @@ class Write_output:
         self.executed_algorthrim = algorhtrim
         self.load_data_name = load_data_name
 
-    def write_solution(self, filename=None):
+    def write_solution(self, path='outputs',filename=None):
 
         base_dir = os.path.dirname(os.path.abspath(__file__))   
-        outputs_dir = os.path.join(base_dir, "outputs")
+        outputs_dir = os.path.join(base_dir, path)
 
         os.makedirs(outputs_dir, exist_ok=True)
 
