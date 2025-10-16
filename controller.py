@@ -3,7 +3,6 @@ from brute_force import brute_force_algorithm
 from dynamic_and_recursive import DinamicAlogorithm
 from Voraz import Voraz
 from write_data import Write_output
-from write_benchmark import Write_output_b
 import copy
 
 class Controller:
@@ -74,12 +73,7 @@ class Controller:
         Writer = Write_output(self.time,self.solution,self.executed_algorthrim,self.load_data.filename)
         Writer.write_solution()
 
-    
-    def write_all_solution(self):
-        Writer = Write_output_b(self.times,self.solutions,"Bencmark",self.load_data.filename)
-        print(f"Solutions={self.solutions}")
-        Writer.write_solution()
-    
+        
 
     def print_solution(self):
         
