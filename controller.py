@@ -5,8 +5,7 @@ from brute_force import brute_force_algorithm
 from dynamic_and_recursive import DinamicAlogorithm
 from Voraz import Voraz
 from write_data import Write_output
-from write_benchmark import Write_output_b
-import os
+import copy
 
 class Controller:
     def __init__(self):
@@ -42,55 +41,54 @@ class Controller:
         students = copy.deepcopy(self.load_data.students)
         subjects = copy.deepcopy(self.load_data.subjects)
 
-        try:
-            if method == 'rocFB':
-                self.executed_algorthrim = "Brute Force"
-                self.solution, self.time = self.brute_force_al.rocFB(subjects, students)
-            elif method == 'rocPD':
-                self.executed_algorthrim = "Dinamic"
-                self.solution, self.time = self.dinamic_al.rocPD(subjects, students)
-            elif method == 'rocV':
+        students=copy.deepcopy(self.load_data.students)
+        subjects=copy.deepcopy(self.load_data.subjects)
+        match method:
+            case 'rocFB':
+                brute_force_al= brute_force_algorithm()
+                self.executed_algorthrim = "rocFB"
+                self.solution,self.time = brute_force_al.rocFB(subjects,students)
+            case 'rocPD':
+                dinamic_al= DinamicAlogorithm()
+                self.executed_algorthrim = "rocPD"
+                self.solution,self.time= dinamic_al.rocPD(subjects,students)
+            case 'rocV':
+                voraz_al = Voraz()
                 self.executed_algorthrim = "Voraz"
-                self.solution, self.time = self.voraz_al.rocV(subjects, students)
-            else:
-                raise ValueError("Método no reconocido")
-        except Exception as e:
-            print(f"Error al ejecutar el algoritmo {method}: {e}")
+                self.solution,self.time = voraz_al.rocV(subjects,students)
 
     def benchmark_solutions(self):
         """Ejecuta y mide los tiempos de los tres algoritmos en paralelo."""
         students = self.load_data.students
         subjects = self.load_data.subjects
 
-        self.solutions = []  # Lista para almacenar las soluciones
-        self.times = []      # Lista para almacenar los tiempos de ejecución
+        brute_force_al= brute_force_algorithm()
+        dinamic_al= DinamicAlogorithm()
+        voraz_al = Voraz()
 
-        try:
-            # Ejecutar algoritmos en paralelo usando ThreadPoolExecutor
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                futures = [
-                    executor.submit(self.brute_force_al.rocFB, subjects, students),
-                    executor.submit(self.dinamic_al.rocPD, subjects, students),
-                    executor.submit(self.voraz_al.rocV, subjects, students)
-                ]
+        self.solutions = []  # aquí guardamos las soluciones
+        self.times = []      # aquí guardamos los tiempos
 
-                for future in concurrent.futures.as_completed(futures):
-                    solution, exec_time = future.result()
-                    self.solutions.append(solution)
-                    self.times.append(exec_time)
-        except Exception as e:
-            print(f"Error al ejecutar los algoritmos en paralelo: {e}")
+        # Brute Force
+        solution, exec_time = brute_force_al.rocFB(subjects, students)
+        self.solutions.append(solution)
+        self.times.append(exec_time)
 
-    def write_FB_solution(self):
-        """Guarda la solución obtenida por el algoritmo Brute Force."""
-        Writer = Write_output(self.time, self.solution, self.executed_algorthrim, self.load_data.filename)
+        # Dinamic
+        solution, exec_time = dinamic_al.rocPD(subjects, students)
+        self.solutions.append(solution)
+        self.times.append(exec_time)
+
+        # Voraz
+        solution, exec_time = voraz_al.rocV(subjects, students)
+        self.solutions.append(solution)
+        self.times.append(exec_time)
+
+    def write_solution(self):
+        Writer = Write_output(self.time,self.solution,self.executed_algorthrim,self.load_data.filename)
         Writer.write_solution()
 
-    def write_all_solution(self):
-        """Guarda todas las soluciones obtenidas de los algoritmos de benchmark."""
-        Writer = Write_output_b(self.times, self.solutions, "Benchmark", self.load_data.filename)
-        print(f"Soluciones={self.solutions}")
-        Writer.write_solution()
+        
 
     def print_solution(self):
         """Imprime la solución obtenida junto con el tiempo de ejecución."""

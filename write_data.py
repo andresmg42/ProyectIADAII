@@ -27,7 +27,7 @@ class Write_output:
                 f.write(f"{student.code},{len(student.assigned_subjects)}\n")
                 for subj in student.assigned_subjects:
                     f.write(f"{subj.code}\n")
-                # f.write("\n")
+                
 
 
 

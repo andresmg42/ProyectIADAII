@@ -1,6 +1,7 @@
 import copy
 import math
 from time import time
+from typing import List,Any
 
 class brute_force_algorithm:
 
@@ -10,12 +11,11 @@ class brute_force_algorithm:
 
   def combinations(self,elements, k):
       
-      
       if k == 0:
           return [[]]
 
       if len(elements) < k:
-          return [elements]
+          return []
 
       first = elements[0]
       remain = elements[1:]
@@ -25,16 +25,21 @@ class brute_force_algorithm:
       whitout_first = self.combinations(remain, k)
 
       return whit_first + whitout_first
-
+  
 
   def combinations_by_subject(self,subject,students):
     quotes=subject.quotas
     code=subject.code
     applicant_students=[student for student in students if any([solicitedsubject.code==code for solicitedsubject in student.solicited_subjects])]
-
-    comb =self.combinations([student.code for student in applicant_students],quotes)
+    applicant_students_codes=[student.code for student in applicant_students]
+   
+    if quotes>=len(applicant_students):
+      return [applicant_students_codes]
+    comb =self.combinations(applicant_students_codes,quotes)
 
     return comb
+  
+
 
   def distribution_final(self,distributions):
 
@@ -53,7 +58,7 @@ class brute_force_algorithm:
         result.append([element]+comb)
 
     return result
-
+  
 
   def distribute_solutions(self,subjects,students):
     subject_distribution=[]
@@ -64,6 +69,7 @@ class brute_force_algorithm:
 
 
     return subject_distribution
+  
 
 
   def get_final_solutions(self,distributed_solutions,students,subjects):
@@ -94,7 +100,7 @@ class brute_force_algorithm:
       if min_general_satisfaction['min']>general_insatisfaction:
         min_general_satisfaction['min']=general_insatisfaction
         min_general_satisfaction['solution']=solution
-    # print("DEBUG en brute_force class solution:", min_general_satisfaction['solution'])
+    
     return min_general_satisfaction
 
 

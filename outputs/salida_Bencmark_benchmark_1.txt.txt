@@ -1,3 +1,0 @@
-=== SOLUCIÓN 1 ===
-Tiempo de ejecución: 0.0001 segundos
-----------------------------
