@@ -16,7 +16,7 @@ voraz.py
 Clase que contiene las funciones que componen el algoritmo voraz
 
 dinamic_and_recursive.py
-Clase que contiene 2 implementaciones una implementacion recursiva y otra implentacion dinamica con memoization esta ultima fue la
+Clase que contiene la implentacion dinamica con memoization esta ultima fue la
 que se uso para el algoritmo dinamico
 
 load_data.py
