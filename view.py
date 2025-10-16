@@ -64,7 +64,7 @@ class View:
         print(f"\nSolución usando {self.controller.executed_algorthrim}:")
         print("----------------------------------")
         self.controller.print_solution()
-        self.controller.write_FB_solution()
+        self.controller.write_solution()
         print("----------------------------------\n")
 
     def exit_app(self):
