@@ -84,7 +84,7 @@ class Controller:
         self.solutions.append(solution)
         self.times.append(exec_time)
 
-    def write_solution(self,path):
+    def write_solution_controller(self,path):
         Writer = Write_output(self.time,self.solution,self.executed_algorthrim,self.load_data.filename)
         Writer.write_solution(path)
 

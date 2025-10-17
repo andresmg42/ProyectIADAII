@@ -6,7 +6,7 @@ from controller import Controller
 class App:
     def __init__(self, root):
         self.root = root
-        self.root.title("Benchmark Results")
+        self.root.title("Proyecto 1 ADAII")
         self.controller = Controller()
 
         # Crear widgets
@@ -18,7 +18,7 @@ class App:
         self.load_button.pack(pady=10)
 
         # Área de texto para mostrar los resultados
-        self.results_text = tk.Text(self.root, height=10, width=50)
+        self.results_text = tk.Text(self.root, height=20, width=50)
         self.results_text.pack(pady=10)
 
         # ComboBox para seleccionar el algoritmo
@@ -43,7 +43,8 @@ class App:
         if file_path:
             try:
                 self.controller.load_data_txt(file_path)
-                self.display_results(f"Datos cargados desde: {file_path}")
+                self.display_results(f"Datos cargados desde: {file_path}\n{self.controller.load_data.content}")
+                
             except Exception as e:
                 messagebox.showerror("Error", f"Error al cargar datos: {e}")
 
@@ -89,6 +90,8 @@ class App:
 
     def save_report(self):
         # Guardar los resultados en un archivo
+
+        print('excecuted algorithm:',self.controller.executed_algorthrim)
         try:
             match self.controller.executed_algorthrim:
                 case 'rocFB':
@@ -97,8 +100,11 @@ class App:
                     path='outputs/dinamic'
                 case 'Voraz':
                     path='outputs/voraz'
-            print('path',path)  
-            Controller.write_solution(path)
+                case _: 
+                    path='outputs'
+             
+            self.controller.write_solution_controller(path)
+            messagebox.showinfo('Informacion guardado',f"Informe guardado exitosamente!")
         except Exception as e:
             messagebox.showerror("Error", f"Error al guardar el informe: {e}")
 
