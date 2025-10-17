@@ -32,7 +32,7 @@ class Controller:
             print(f"Ocurrió un error inesperado: {e}")
 
     def print_loaded_data(self):
-        """Imprime los datos cargados (estudiantes y materias)."""
+        """retorna los datos cargados (estudiantes y materias)."""
         info=''
         for student in self.load_data.students:
             info +=student.return_info()+'\n'

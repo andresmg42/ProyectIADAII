@@ -1,3 +1,20 @@
+ -----------------------------INSTRUCCIONES DE USO--------------------------------------------------------------------------------
+
+ADVERTENCIA!--> La GUI solo funciona hasta la prueba9.txt, ya que despues por el tiempo que tardan las demas pruebas esta se bloquea. De alli en adelante utilizar consola (python main.py)
+
+-Ponga en la carpeta inputs los archivos de entrada que se quiera probar, luego ejecute el archivo "python App.py" (opcional ejecute "python main.py" para CMD) esto desplegara un menu
+en una GUI (o CMD).
+
+-primero le pedira elegir un archivo de entrada para ejecutar los algoritmo, tenga en cuenta que el archivo debe estar en la carpeta 
+inputs antes de seleccionarlo o escribir el nombre.
+
+-luego de seleccionar el archivo de entrada le pedira elegir el algoritmo mediante un menu desplegable (GUI) o de numeros (CMD),
+una vez seleccionado el algoritmo correspondiente este mostrara la solucion por pantalla (o consola) y tambien escribira la solucion
+en un archivo .txt dentro de la carpeta outputs en la subcarpeta del algoritmo correspondiente.
+
+-cabe aclarar que mientras no selecione la opcion de cargar nueva entrada o salir puede correr todos los algoritmos con la mism
+entrada cargada.
+
 --------------------------------------EXPLICACION DE LOS ARCHIVOS--------------------------------------------------
 classes.py
 Este archivo contiene los objetos principales del proyecto contiene las clases:
@@ -40,28 +57,14 @@ Esta es la clase controladora del programa la cual llamada a las demas clases me
 funciones nesesarias para correr los algoritmos y tambien escribe las soluciones en los txt
 
 App.py
-Esta es una GUI amigable que permite cargar todos los archivos de prueba y ejecutarlos en una interfaz amigable y simple. para ejecutarla 
+Esta es una GUI amigable que permite cargar  los archivos de prueba y ejecutarlos en una interfaz amigable y simple. para ejecutarla 
 correr "python App.py". Es la primera opcion de ejecucion de la aplicacion que debe considerar el usuario.
 
 view.py 
 Esta es una interfaz adicional que se realizo para utilizar la linea de comandos como interfaz para correr la aplicacion,
-Esta interfaz es mas simple, pero a la vez mais intuitiva y sensilla. Es opcional por si la interfaz grafica llega a fallar por
+Esta interfaz es mas simple, pero a la vez mas intuitiva y sensilla. Es opcional por si la interfaz grafica llega a fallar por
 algun motivo imprevisto. Para usarla utilizar el comando "python main.py "
 
 main.py 
-En este archivo se ejecuta la interfaz de consola. (utilizar la interfaz de consola como segunda opcion)
+En este archivo se ejecuta la interfaz de consola. (utilizar la interfaz de consola como segunda opcion a partir de la Prueba9.txt)
 
-
------------------------------INSTRUCCIONES DE USO--------------------------------------------------------------------------------
--Ponga en la carpeta inputs los archivos de entrada que se quiera probar, luego ejecute el archivo "python App.py" (opcional ejecute "python main.py") esto desplegar un menu
-en una GUI. 
-
--primero le pedira elegir un archivo de entrada para ejecutar los algoritmo, tenga en cuenta que el archivo debe estar en la carpeta 
-inputs antes de seleccionarlo o escribir el nombre.
-
--luego de seleccionar el archivo de entrada le pedira elegir el algoritmo mediante un menu desplegable (GUI) o de numeros (CMD),
-una vez seleccionado el algoritmo correspondiente este mostrara la solucion por pantalla (consola) y tambien escribira la solucion
-en un archivo txt dentro de la carpeta outputs
-
--cabe aclarar que mientras no selecione la opcion de cargar nueva entrada o salir puede correr todos los algoritmos con la mism
-entrada cargada

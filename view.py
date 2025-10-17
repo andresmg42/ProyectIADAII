@@ -32,7 +32,7 @@ class View:
             self.controller.load_data_txt(f"./inputs/{filename}")
             print("\nDatos cargados correctamente!!!")
             print("\nEstos son los datos cargados:")
-            self.controller.print_loaded_data()
+            print(self.controller.print_loaded_data())
         except FileNotFoundError:
             print("No se encontró el archivo, intente de nuevo")
 
