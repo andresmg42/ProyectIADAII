@@ -42,8 +42,9 @@ class App:
         file_path = filedialog.askopenfilename(title="Seleccionar archivo de datos", filetypes=[("Text files", "*.txt")])
         if file_path:
             try:
+                self.controller.load_data.clear_data()
                 self.controller.load_data_txt(file_path)
-                self.display_results(f"Datos cargados desde: {file_path}\n{self.controller.load_data.content}")
+                self.display_results(f"Datos cargados desde: {file_path}\n{self.controller.print_loaded_data()}")
                 
             except Exception as e:
                 messagebox.showerror("Error", f"Error al cargar datos: {e}")
@@ -69,6 +70,7 @@ class App:
             # result_text = f"Solución: {self.controller.solution}\nTiempo de ejecución: {self.controller.time:.4f} segundos"
 
             text_sol=f'Algoritmo ejecutado: {self.controller.executed_algorthrim}\n'
+            text_sol+=f'Tiempo de ejecucion: {self.controller.time} seg\n'
             text_sol+=f'Valor Solucion: {self.controller.solution['min']}\n'
             text_sol=text_sol +'------------------------------------------------\n'
             text_sol=text_sol + 'Solucion: \n'

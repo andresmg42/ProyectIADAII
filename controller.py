@@ -33,8 +33,10 @@ class Controller:
 
     def print_loaded_data(self):
         """Imprime los datos cargados (estudiantes y materias)."""
+        info=''
         for student in self.load_data.students:
-            print(student.return_info())
+            info +=student.return_info()+'\n'
+        return info
 
     def find_solution(self, method):
         """Encuentra una solución según el algoritmo elegido."""

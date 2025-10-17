@@ -1,2 +1,0 @@
-Solución: {'min': 0.04, 'solution': [<classes.Student object at 0x000001E05AF1FE90>, <classes.Student object at 0x000001E05AF37610>, <classes.Student object at 0x000001E05AF36F10>, <classes.Student object at 0x000001E05AF373D0>, <classes.Student object at 0x000001E05AF36410>]}
-Tiempo de ejecución: 0.0070 segundos
