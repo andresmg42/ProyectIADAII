@@ -64,7 +64,16 @@ class View:
         print(f"\nSolución usando {self.controller.executed_algorthrim}:")
         print("----------------------------------")
         self.controller.print_solution()
-        self.controller.write_solution()
+        match self.controller.executed_algorthrim:
+                case 'rocFB':
+                    path='outputs/brute_force'
+                case 'rocPD':
+                    path='outputs/dinamic'
+                case 'Voraz':
+                    path='outputs/voraz'
+                case _: 
+                    path='outputs'
+        self.controller.write_solution_controller(path)
         print("----------------------------------\n")
 
     def exit_app(self):
